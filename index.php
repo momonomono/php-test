@@ -5,7 +5,34 @@
     ["バナナ", 30, 60],
     ["ぶどう", 5, 240]
  ];
- 
+  // 1
+ function checkProductStock($array){
+    foreach($array as $product){
+        if($product[1] > 0){
+            echo "<p>{$product[0]}は在庫はある。</p>";
+        }else{
+            echo "<p>{$product[0]}は在庫はない。</p>";
+        } 
+     }
+ }
+    // 2    
+    function checkPrice($array){
+        $expensive_product_num = 0;
+        $moderate_product_num = 0;
+        $cheap_product_num = 0;
+
+        foreach($array as $product){
+            if($product[2] >= 200){
+                $expensive_product_num ++;
+            }else if($product[2] >= 100 && $product[2] < 200){
+                $moderate_product_num ++;
+            }else{
+                $cheap_product_num ++;
+            }
+        }
+
+        echo "<p>高価な商品は{$expensive_product_num}件、中価格の商品は{$moderate_product_num}件、安価な商品は{$cheap_product_num}件あります。</p>";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -16,31 +43,9 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
-        // 1
-        foreach($products as $product){
-            if($product[1] > 0){
-                echo "<p>{$product[0]}は在庫はある。</p>";
-            }else{
-                echo "<p>{$product[0]}は在庫はない。</p>";
-            } 
-        }
-
-        $expensive_product_num = 0;
-        $moderate_product_num = 0;
-        $cheap_product_num = 0;
-
-        foreach($products as $product){
-            if($product[2] >= 200){
-                $expensive_product_num ++;
-            }else if($product[2] >= 100 && $product[2] < 200){
-                $moderate_product_num ++;
-            }else{
-                $cheap_product_num ++;
-            }
-        }
-
-        echo "高価な商品は{$expensive_product_num}件、中価格の商品は{$moderate_product_num}件、安価な商品は{$cheap_product_num}件あります。";
+    <?php
+        checkProductStock($products);
+        checkPrice($products);
     ?>
 </body>
 </html>
