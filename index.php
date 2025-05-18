@@ -1,20 +1,22 @@
 <?php
- $products = [
-    ["りんご", 50, 110],
-    ["みかん", 0, 80],
-    ["バナナ", 30, 60],
-    ["ぶどう", 5, 240]
- ];
-  // 1
- function checkProductStock($array){
-    foreach($array as $product){
-        if($product[1] > 0){
-            echo "<p>{$product[0]}は在庫はある。</p>";
-        }else{
-            echo "<p>{$product[0]}は在庫はない。</p>";
-        } 
-     }
- }
+    $products = [
+        ["りんご", 50, 110],
+        ["みかん", 0, 80],
+        ["バナナ", 30, 60],
+        ["ぶどう", 5, 240]
+    ];
+
+    // 1
+    function checkProductStock($array){
+        foreach($array as $product){
+            if($product[1] > 0){
+                echo "<p>{$product[0]}は在庫はある。</p>";
+            }else{
+                echo "<p>{$product[0]}は在庫はない。</p>";
+            } 
+        }
+    }
+    
     // 2    
     function checkPrice($array){
         $expensive_product_num = 0;
